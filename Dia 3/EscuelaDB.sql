@@ -11,7 +11,7 @@ CREATE TABLE persona (
   telefono VARCHAR(9) NOT NULL,
   fecha_nacimiento DATE,
   sexo ENUM('H', 'M'),
-  tipo ENUM('A', 'B')
+  tipo ENUM('A', 'P')
 );
 
 CREATE TABLE departamento (
@@ -25,16 +25,17 @@ CREATE TABLE grado (
 );
 
 CREATE TABLE profesor (
-  id_profesor INT PRIMARY KEY AUTO_INCREMENT,
+  id_profesor INT PRIMARY KEY,
   id_departamento INT,
-  FOREIGN KEY (id_departamento) REFERENCES departamento (id_departamento)
+  FOREIGN KEY (id_departamento) REFERENCES departamento (id_departamento),
+  FOREIGN KEY (id_profesor) REFERENCES persona (id_persona)
 );
 
 CREATE TABLE asignatura (
   id_asignatura INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(100) NOT NULL,
   creditos VARCHAR(10),
-  tipo ENUM('A', 'B'),
+  tipo ENUM('OP', 'OB'),
   curso TINYINT(3),
   cuatrimeste TINYINT(3),
   id_profesor INT,
