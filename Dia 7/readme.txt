@@ -1,0 +1,1 @@
+Estos son los ejercicios realizados en el examen 1 de MYSQL - Mayo 09/2024
